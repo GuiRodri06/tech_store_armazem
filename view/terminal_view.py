@@ -1,6 +1,7 @@
 # view/terminal_view.py
 
 class TerminalView:
+    
     # Método para exibir o menu de opções para o usuário
     def mostrar_menu(self):
         print("1. Adicionar Produto")  # Opção para adicionar um novo produto

@@ -1,10 +1,11 @@
 # controller/produto_controller.py
 
-# Importa as classes Estoque e Produto, que são necessárias para gerenciar os produtos
+# Importa as classes Estoque e Produto
 from model.estoque import Estoque
 from model.produto import Produto
 
 class ProdutoController:
+    
     # Método construtor da classe ProdutoController
     def __init__(self):
         # Cria uma instância da classe Estoque para gerenciar os produtos
