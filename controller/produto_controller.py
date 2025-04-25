@@ -3,8 +3,9 @@
 # Importa as classes Estoque e Produto
 from model.estoque import Estoque
 from model.produto import Produto
+from interface.sistema_interface import SistemaInterface
 
-class ProdutoController:
+class ProdutoController(SistemaInterface):
 
     # Método construtor da classe ProdutoController
     def __init__(self):
