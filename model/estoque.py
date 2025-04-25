@@ -21,11 +21,11 @@ class Estoque:
         # Executa a instrução SQL para criar a tabela, se ela não existir
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS produtos (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,  # ID do produto, chave primária
-                nome TEXT,                              # Nome do produto
-                categoria TEXT,                         # Categoria do produto
-                preco REAL,                             # Preço do produto
-                quantidade INTEGER                       # Quantidade do produto
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome TEXT,
+                categoria TEXT,
+                preco REAL,
+                quantidade INTEGER
             )
         ''')
         # Salva as alterações no banco de dados
