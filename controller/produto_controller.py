@@ -42,7 +42,14 @@ class ProdutoController(SistemaInterface):
             if p.nome == nome:
                 self.estoque.atualizarPrecoEstoque(p, novoPreco)
                 break
-            
+
+    def atualizarNome(self, nome, novoNome): 
+        produtos = self.estoque.listar_produtos()
+        for p in produtos: 
+            if p.nome == nome:
+                self.estoque.atualizarNomeEstoque(p, novoNome)
+                break
+
     # Método para remover um produto ao estoque
     def remover_produto(self, nome):
         # Remove o produto

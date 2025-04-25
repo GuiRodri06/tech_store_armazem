@@ -14,6 +14,9 @@ class SistemaInterface(ABC):
 
     @abstractmethod
     def atualizarPreco(self, nome, novoPreco): pass
+
+    @abstractmethod
+    def atualizarNome(self, nome, novoNome): pass
     
     @abstractmethod
     def remover_produto(self, nome): pass

@@ -91,6 +91,19 @@ class Estoque:
         conn.commit()
         conn.close()
 
+    def atualizarNomeEstoque(self, produto, nome):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+                       UPDATE produtos
+                       SET nome = ?
+                       WHERE nome = ?
+                       ''', (nome, produto.nome))
+        
+        conn.commit()
+        conn.close()
+
     # Método para remover um produto do banco de dados
     def remover_produto(self, produto):
         # Conecta ao banco de dados

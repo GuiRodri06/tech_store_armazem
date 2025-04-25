@@ -15,9 +15,9 @@ class TerminalView:
     # Método para exibir o menu de opções para o usuário alterar as deevidas informações
     def menu_atualizar_info(self):
         print("=== MENU DE ALTERAÇÃO ===")
-        print("1. Atualizar Auantidade em Stock")  
+        print("1. Atualizar Quantidade em Stock")  
         print("2. Atualizar Preço do Produto")   
-        print("3. ") 
+        print("3. Atualizar Nome do Produto") 
         print("4. ")    
         print("5. ")               
         print("========================")
@@ -49,3 +49,6 @@ class TerminalView:
     
     def pedir_novo_preco(self):
         return float(input("Novo preço: "))
+    
+    def pedirNovoNome(self):
+        return input("Novo nome do produto: ")

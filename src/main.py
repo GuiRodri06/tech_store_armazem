@@ -59,7 +59,12 @@ def main():
                 nome = view.pedir_nome_produto()
                 novoPreco = view.pedir_novo_preco()
                 controller.atualizarPreco(nome, novoPreco)
-                 
+
+            elif opcaoAtualizar == "3":
+                nome = view.pedir_nome_produto()
+                novoNome = view.pedirNovoNome()
+                controller.atualizarNome(nome, novoNome)   
+
         # Se o usuário escolher a opção 4
         elif opcao == "4":
             # Solicita o nome do produto que o usuário deseja remover
