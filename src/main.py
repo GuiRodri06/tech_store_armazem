@@ -47,6 +47,13 @@ def main():
 
         # Se o usuário escolher a opção 4
         elif opcao == "4":
+            # Solicita o nome do produto que o usuário deseja remover
+            nome = view.pedir_nome_produto_remover()
+            # Remove o produto usando o controlador
+            controller.remover_produto(nome)
+
+        # Se o usuário escolher a opção 4
+        elif opcao == "5":
             # Informa ao usuário que o programa está saindo
             print("Saindo...")
             # Interrompe o loop e encerra o programa

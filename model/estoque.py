@@ -68,7 +68,7 @@ class Estoque:
         # Conecta ao banco de dados
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         # Executa a instrução SQL para atualizar a quantidade do produto
         cursor.execute('''
             UPDATE produtos
@@ -76,6 +76,22 @@ class Estoque:
             WHERE nome = ?
         ''', (quantidade, produto.nome))
  
+        conn.commit() # Salva as alterações no banco de dados
+        
+        conn.close() # Fecha a conexão com o banco de dados
+
+    # Método para remover um produto do banco de dados
+    def remover_produto(self, produto):
+        # Conecta ao banco de dados
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Executa a instrução SQL para remover o produto
+        cursor.execute('''
+            DELETE FROM produtos
+            WHERE nome = ?
+        ''', (produto,))
+        
         conn.commit() # Salva as alterações no banco de dados
         
         conn.close() # Fecha a conexão com o banco de dados
