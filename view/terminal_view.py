@@ -4,11 +4,13 @@ class TerminalView:
 
     # Método para exibir o menu de opções para o usuário
     def mostrar_menu(self):
+        print("\n========= MENU =========")
         print("1. Adicionar Produto")  # Opção para adicionar um novo produto
         print("2. Listar Produtos")   # Opção para listar todos os produtos
         print("3. Atualizar Produto")  # Opção para atualizar a quantidade de um produto existente
         print("4. Remover Produto")   # Opção para remover um produto 
         print("5. Sair")               # Opção para sair do programa
+        print("========================")
 
     # Método para exibir a lista de produtos
     def mostrar_produtos(self, produtos):
