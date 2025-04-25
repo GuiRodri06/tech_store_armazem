@@ -1,10 +1,12 @@
 # controller/produto_controller.py
 
-# Importa as classes Estoque e Produto, que são necessárias para gerenciar os produtos
+# Importa as classes Estoque e Produto
 from model.estoque import Estoque
 from model.produto import Produto
+from interface.sistema_interface import SistemaInterface
 
-class ProdutoController:
+class ProdutoController(SistemaInterface):
+
     # Método construtor da classe ProdutoController
     def __init__(self):
         # Cria uma instância da classe Estoque para gerenciar os produtos
@@ -33,3 +35,8 @@ class ProdutoController:
                 # Atualiza a quantidade do produto no estoque
                 self.estoque.atualizar_estoque(p, nova_quantidade)
                 break  # Interrompe o loop após atualizar o produto
+
+    # Método para remover um produto ao estoque
+    def remover_produto(self, nome):
+        # Remove o produto
+        return self.estoque.remover_produto(nome)

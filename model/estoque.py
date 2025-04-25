@@ -1,11 +1,11 @@
 # model/estoque.py
 
-# Importa o módulo sqlite3 para manipulação de banco de dados SQLite
-import sqlite3
-# Importa a classe Produto, que representa um produto no estoque
-from model.produto import Produto
+import sqlite3 # Importa o módulo sqlite
+
+from model.produto import Produto # Importa a classe Produto
 
 class Estoque:
+
     # Método construtor da classe Estoque
     def __init__(self, db_path="db/armazem.db"):
         # Define o caminho do banco de dados
@@ -28,10 +28,10 @@ class Estoque:
                 quantidade INTEGER
             )
         ''')
-        # Salva as alterações no banco de dados
-        conn.commit()
-        # Fecha a conexão com o banco de dados
-        conn.close()
+        
+        conn.commit() # Salva as alterações no banco de dados
+        
+        conn.close() # Fecha a conexão com o banco de dados
 
     # Método para adicionar um novo produto ao banco de dados
     def adicionar_produto(self, produto):
@@ -43,21 +43,22 @@ class Estoque:
             INSERT INTO produtos (nome, categoria, preco, quantidade) 
             VALUES (?, ?, ?, ?)
         ''', (produto.nome, produto.categoria, produto.preco, produto.quantidade))
-        # Salva as alterações no banco de dados
-        conn.commit()
-        # Fecha a conexão com o banco de dados
-        conn.close()
+
+        conn.commit() # Salva as alterações no banco de dados
+        
+        conn.close() # Fecha a conexão com o banco de dados
 
     # Método para listar todos os produtos no banco de dados
     def listar_produtos(self):
         # Conecta ao banco de dados
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
+
         # Executa a instrução SQL para selecionar todos os produtos
         cursor.execute('SELECT * FROM produtos')
         produtos = cursor.fetchall()  # Obtém todos os resultados da consulta
-        # Fecha a conexão com o banco de dados
-        conn.close()
+        
+        conn.close() # Fecha a conexão com o banco de dados
 
         # Retorna uma lista de instâncias de Produto, criando um para cada linha retornada
         return [Produto(nome=p[1], categoria=p[2], preco=p[3], quantidade=p[4]) for p in produtos]
@@ -67,13 +68,30 @@ class Estoque:
         # Conecta ao banco de dados
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
+
         # Executa a instrução SQL para atualizar a quantidade do produto
         cursor.execute('''
             UPDATE produtos
             SET quantidade = ?
             WHERE nome = ?
         ''', (quantidade, produto.nome))
-        # Salva as alterações no banco de dados
-        conn.commit()
-        # Fecha a conexão com o banco de dados
-        conn.close()
+ 
+        conn.commit() # Salva as alterações no banco de dados
+        
+        conn.close() # Fecha a conexão com o banco de dados
+
+    # Método para remover um produto do banco de dados
+    def remover_produto(self, produto):
+        # Conecta ao banco de dados
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Executa a instrução SQL para remover o produto
+        cursor.execute('''
+            DELETE FROM produtos
+            WHERE nome = ?
+        ''', (produto,))
+        
+        conn.commit() # Salva as alterações no banco de dados
+        
+        conn.close() # Fecha a conexão com o banco de dados

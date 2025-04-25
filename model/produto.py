@@ -1,6 +1,7 @@
 # model/produto.py
 
 class Produto:
+    
     # Método construtor da classe Produto
     def __init__(self, nome, categoria, preco, quantidade):
         # Inicializa os atributos do produto com os valores fornecidos
