@@ -25,7 +25,7 @@ class ProdutoController(SistemaInterface):
         return self.estoque.listar_produtos()
 
     # Método para atualizar a quantidade de um produto existente
-    def atualizar_produto(self, nome, nova_quantidade):
+    def atualizarQuantidade(self, nome, nova_quantidade):
         # Obtém a lista de produtos do estoque
         produtos = self.estoque.listar_produtos()
         # Itera sobre cada produto na lista
@@ -36,6 +36,13 @@ class ProdutoController(SistemaInterface):
                 self.estoque.atualizar_estoque(p, nova_quantidade)
                 break  # Interrompe o loop após atualizar o produto
 
+    def atualizarPreco(self, nome, novoPreco):
+        produtos = self.estoque.listar_produtos()
+        for p in produtos: 
+            if p.nome == nome:
+                self.estoque.atualizarPrecoEstoque(p, novoPreco)
+                break
+            
     # Método para remover um produto ao estoque
     def remover_produto(self, nome):
         # Remove o produto

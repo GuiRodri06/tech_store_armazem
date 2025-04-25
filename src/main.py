@@ -22,6 +22,8 @@ def main():
         
         opcao = input("Escolha uma opção: ")
 
+        print("========================\n")
+
         # Se o usuário escolher a opção 1
         if opcao == "1":
             # Solicita os dados do produto (nome, categoria, preço e quantidade)
@@ -31,20 +33,33 @@ def main():
 
         # Se o usuário escolher a opção 2
         elif opcao == "2":
+            print("================ PRODUTOS NO STOCK ================")
             # Obtém a lista de produtos do controlador
             produtos = controller.listar_produtos()
             # Exibe a lista de produtos na visualização
             view.mostrar_produtos(produtos)
+            print("===================================================")
 
         # Se o usuário escolher a opção 3
         elif opcao == "3":
-            # Solicita o nome do produto que o usuário deseja atualizar
-            nome = view.pedir_nome_produto()
-            # Solicita a nova quantidade para o produto
-            nova_quantidade = view.pedir_nova_quantidade()
-            # Atualiza a quantidade do produto usando o controlador
-            controller.atualizar_produto(nome, nova_quantidade)
 
+            view.menu_atualizar_info()
+            opcaoAtualizar = input("Escolha uma opção: ")
+            print("========================\n")
+
+            if opcaoAtualizar == "1":
+                # Solicita o nome do produto que o usuário deseja atualizar
+                nome = view.pedir_nome_produto()
+                # Solicita a nova quantidade para o produto
+                nova_quantidade = view.pedir_nova_quantidade()
+                # Atualiza a quantidade do produto usando o controlador
+                controller.atualizarQuantidade(nome, nova_quantidade)
+            
+            elif opcaoAtualizar == "2":
+                nome = view.pedir_nome_produto()
+                novoPreco = view.pedir_novo_preco()
+                controller.atualizarPreco(nome, novoPreco)
+                 
         # Se o usuário escolher a opção 4
         elif opcao == "4":
             # Solicita o nome do produto que o usuário deseja remover
@@ -54,8 +69,8 @@ def main():
 
         # Se o usuário escolher a opção 4
         elif opcao == "5":
-            # Informa ao usuário que o programa está saindo
             print("Saindo...")
+            print("\n========================\n")
             # Interrompe o loop e encerra o programa
             break
 
