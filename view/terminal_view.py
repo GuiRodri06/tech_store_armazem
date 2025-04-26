@@ -1,5 +1,7 @@
 # view/terminal_view.py
 
+import os
+
 class TerminalView:
 
     # Método para exibir o menu de opções para o usuário
@@ -51,3 +53,7 @@ class TerminalView:
     
     def pedirNovoNome(self):
         return input("Novo nome do produto: ")
+    
+    # Método para limpar o terminal
+    def limparTerminal(self):
+        os.system('cls' if os.name == 'nt' else 'clear')

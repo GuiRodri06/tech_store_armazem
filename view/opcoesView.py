@@ -3,6 +3,7 @@
 # Importa os módulos necessários para manipulação de caminhos e sistema
 import sys
 import os
+import time
 
 # Adiciona o diretório pai ao sys.path para que os módulos possam ser importados corretamente
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -26,12 +27,21 @@ class OpcoesView:
 
             print("========================\n")
 
+            view.limparTerminal()
+
             # Se o usuário escolher a opção 1
             if opcao == "1":
+
+                print("==== CADASTRO DE NOVO PRODUTO ====")
                 # Solicita os dados do produto (nome, categoria, preço e quantidade)
                 nome, categoria, preco, quantidade = view.pedir_dados_produto()
                 # Adiciona o produto usando o controlador
                 controller.adicionar_produto(nome, categoria, preco, quantidade)
+                print("==================================")
+                print("Produto Novo Cadastrado com Sucesso")
+                print("==================================")
+                time.sleep(2.5)
+                view.limparTerminal()
 
             # Se o usuário escolher a opção 2
             elif opcao == "2":
@@ -80,7 +90,10 @@ class OpcoesView:
 
             # Se o usuário escolher a opção 4
             elif opcao == "5":
-                print("Saindo...")
-                print("\n========================\n")
+                print("============================")
+                print("     Saindo Do Programa")
+                print("============================")
+                time.sleep(2)
+                view.limparTerminal()
                 # Interrompe o loop e encerra o programa
                 break
