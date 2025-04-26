@@ -42,28 +42,32 @@ def main():
 
         # Se o usuário escolher a opção 3
         elif opcao == "3":
-
-            view.menu_atualizar_info()
-            opcaoAtualizar = input("Escolha uma opção: ")
-            print("========================\n")
-
-            if opcaoAtualizar == "1":
-                # Solicita o nome do produto que o usuário deseja atualizar
-                nome = view.pedir_nome_produto()
-                # Solicita a nova quantidade para o produto
-                nova_quantidade = view.pedir_nova_quantidade()
-                # Atualiza a quantidade do produto usando o controlador
-                controller.atualizarQuantidade(nome, nova_quantidade)
             
-            elif opcaoAtualizar == "2":
-                nome = view.pedir_nome_produto()
-                novoPreco = view.pedir_novo_preco()
-                controller.atualizarPreco(nome, novoPreco)
+            while True: 
+                view.menu_atualizar_info()
+                opcaoAtualizar = input("Escolha uma opção: ")
+                print("========================\n")
 
-            elif opcaoAtualizar == "3":
-                nome = view.pedir_nome_produto()
-                novoNome = view.pedirNovoNome()
-                controller.atualizarNome(nome, novoNome)   
+                if opcaoAtualizar == "1":
+                    # Solicita o nome do produto que o usuário deseja atualizar
+                    nome = view.pedir_nome_produto()
+                    # Solicita a nova quantidade para o produto
+                    nova_quantidade = view.pedir_nova_quantidade()
+                    # Atualiza a quantidade do produto usando o controlador
+                    controller.atualizarQuantidade(nome, nova_quantidade)
+                
+                elif opcaoAtualizar == "2":
+                    nome = view.pedir_nome_produto()
+                    novoPreco = view.pedir_novo_preco()
+                    controller.atualizarPreco(nome, novoPreco)
+
+                elif opcaoAtualizar == "3":
+                    nome = view.pedir_nome_produto()
+                    novoNome = view.pedirNovoNome()
+                    controller.atualizarNome(nome, novoNome)
+
+                elif opcaoAtualizar == "4":
+                    break   
 
         # Se o usuário escolher a opção 4
         elif opcao == "4":

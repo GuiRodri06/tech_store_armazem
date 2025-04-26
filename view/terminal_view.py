@@ -18,8 +18,7 @@ class TerminalView:
         print("1. Atualizar Quantidade em Stock")  
         print("2. Atualizar Preço do Produto")   
         print("3. Atualizar Nome do Produto") 
-        print("4. ")    
-        print("5. ")               
+        print("4. Sair")            
         print("========================")
 
     # Método para exibir a lista de produtos
