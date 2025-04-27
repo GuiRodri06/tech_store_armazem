@@ -56,6 +56,14 @@ class OpcoesView:
             elif opcao == "3":
                 
                 while True: 
+
+                    print("================ PRODUTOS NO STOCK ================")
+                    # Obtém a lista de produtos do controlador
+                    produtos = controller.listar_produtos()
+                    # Exibe a lista de produtos na visualização
+                    view.mostrar_produtos(produtos)
+                    print("===================================================")
+
                     view.menu_atualizar_info()
                     opcaoAtualizar = input("Escolha uma opção: ")
                     print("========================\n")
@@ -96,7 +104,7 @@ class OpcoesView:
                 print("============================")
                 print("     Saindo Do Programa")
                 print("============================")
-                time.sleep(2)
+                time.sleep(1.5)
                 view.limparTerminal()
                 # Interrompe o loop e encerra o programa
                 break
