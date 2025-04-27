@@ -72,13 +72,16 @@ class OpcoesView:
                         nome = view.pedir_nome_produto()
                         novoPreco = view.pedir_novo_preco()
                         controller.atualizarPreco(nome, novoPreco)
+                        view.limparTerminal()
 
                     elif opcaoAtualizar == "3":
                         nome = view.pedir_nome_produto()
                         novoNome = view.pedirNovoNome()
                         controller.atualizarNome(nome, novoNome)
+                        view.limparTerminal()
 
                     elif opcaoAtualizar == "4":
+                        view.limparTerminal()
                         break   
 
             # Se o usuário escolher a opção 4
