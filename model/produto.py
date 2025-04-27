@@ -13,4 +13,4 @@ class Produto:
     # Método especial para representar o objeto Produto como uma string
     def __str__(self):
         # Retorna uma representação formatada do produto
-        return f'{self.nome} | {self.categoria} | R${self.preco:.2f} | Estoque: {self.quantidade}'
+        return f'{self.nome} | {self.categoria} | €{self.preco:.2f} | Estoque: {self.quantidade}'

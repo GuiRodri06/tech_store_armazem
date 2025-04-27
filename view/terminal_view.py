@@ -32,7 +32,7 @@ class TerminalView:
     def pedir_dados_produto(self):
         nome = input("Nome do produto: ")          # Solicita o nome do produto
         categoria = input("Categoria: ")            # Solicita a categoria do produto
-        preco = float(input("Preço: R$"))           # Solicita o preço do produto e converte para float
+        preco = float(input("Preço: €"))           # Solicita o preço do produto e converte para float
         quantidade = int(input("Quantidade: "))     # Solicita a quantidade do produto e converte para int
         return nome, categoria, preco, quantidade    # Retorna os dados do produto como uma tupla
     
