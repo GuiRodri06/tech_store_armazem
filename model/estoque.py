@@ -45,7 +45,6 @@ class Estoque:
         ''', (produto.nome, produto.categoria, produto.preco, produto.quantidade))
 
         conn.commit() # Salva as alterações no banco de dados
-        
         conn.close() # Fecha a conexão com o banco de dados
 
     # Método para listar todos os produtos no banco de dados
@@ -77,8 +76,33 @@ class Estoque:
         ''', (quantidade, produto.nome))
  
         conn.commit() # Salva as alterações no banco de dados
-        
         conn.close() # Fecha a conexão com o banco de dados
+
+    def atualizarPrecoEstoque(self, produto, preco):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+
+        cursor.execute('''
+                       UPDATE produtos
+                       SET preco = ?
+                       WHERE nome = ?
+                       ''', (preco, produto.nome))
+        
+        conn.commit()
+        conn.close()
+
+    def atualizarNomeEstoque(self, produto, nome):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+                       UPDATE produtos
+                       SET nome = ?
+                       WHERE nome = ?
+                       ''', (nome, produto.nome))
+        
+        conn.commit()
+        conn.close()
 
     # Método para remover um produto do banco de dados
     def remover_produto(self, produto):
@@ -93,5 +117,4 @@ class Estoque:
         ''', (produto,))
         
         conn.commit() # Salva as alterações no banco de dados
-        
         conn.close() # Fecha a conexão com o banco de dados

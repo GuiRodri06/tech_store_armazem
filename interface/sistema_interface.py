@@ -10,7 +10,13 @@ class SistemaInterface(ABC):
     def listar_produtos(self): pass
 
     @abstractmethod
-    def atualizar_produto(self, nome, nova_quantidade): pass
+    def atualizarQuantidade(self, nome, nova_quantidade): pass
 
+    @abstractmethod
+    def atualizarPreco(self, nome, novoPreco): pass
+
+    @abstractmethod
+    def atualizarNome(self, nome, novoNome): pass
+    
     @abstractmethod
     def remover_produto(self, nome): pass

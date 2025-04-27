@@ -7,57 +7,12 @@ import os
 # Adiciona o diretório pai ao sys.path para que os módulos possam ser importados corretamente
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.produto_controller import ProdutoController # Importa a classe ProdutoController
-from view.terminal_view import TerminalView # Importa a classe TerminalView
+from view.opcoesView import OpcoesView # Importa a classe TerminalView
 
 def main():
     
-    controller = ProdutoController() # Cria uma instância do controlador de produtos
-    view = TerminalView() # Cria uma instância da visualização do terminal
-
-    # Inicia um loop infinito para o menu principal
-    while True:
-        # Exibe o menu de opções para o usuário
-        view.mostrar_menu()
-        
-        opcao = input("Escolha uma opção: ")
-
-        # Se o usuário escolher a opção 1
-        if opcao == "1":
-            # Solicita os dados do produto (nome, categoria, preço e quantidade)
-            nome, categoria, preco, quantidade = view.pedir_dados_produto()
-            # Adiciona o produto usando o controlador
-            controller.adicionar_produto(nome, categoria, preco, quantidade)
-
-        # Se o usuário escolher a opção 2
-        elif opcao == "2":
-            # Obtém a lista de produtos do controlador
-            produtos = controller.listar_produtos()
-            # Exibe a lista de produtos na visualização
-            view.mostrar_produtos(produtos)
-
-        # Se o usuário escolher a opção 3
-        elif opcao == "3":
-            # Solicita o nome do produto que o usuário deseja atualizar
-            nome = view.pedir_nome_produto()
-            # Solicita a nova quantidade para o produto
-            nova_quantidade = view.pedir_nova_quantidade()
-            # Atualiza a quantidade do produto usando o controlador
-            controller.atualizar_produto(nome, nova_quantidade)
-
-        # Se o usuário escolher a opção 4
-        elif opcao == "4":
-            # Solicita o nome do produto que o usuário deseja remover
-            nome = view.pedir_nome_produto_remover()
-            # Remove o produto usando o controlador
-            controller.remover_produto(nome)
-
-        # Se o usuário escolher a opção 4
-        elif opcao == "5":
-            # Informa ao usuário que o programa está saindo
-            print("Saindo...")
-            # Interrompe o loop e encerra o programa
-            break
+    view = OpcoesView() # Cria uma instância da visualização do terminal
+    view.opcoesMenu()
 
 # Verifica se o script está sendo executado diretamente
 if __name__ == "__main__":
