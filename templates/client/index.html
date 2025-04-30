@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Tech Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='client/style/style.css') }}">
+</head>
+<body>
+    <h1>Bem-vindo à Tech Store</h1>
+
+    {% for produto in produtos %}
+        <div class="produto">
+            <h2>{{ produto.nome }}</h2>
+            <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+            <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+            <p><strong>Disponíveis:</strong> {{ produto.quantidade }}</p>
+            <a href="{{ url_for('detalhe', nome=produto.nome) }}" class="botao">Ver Detalhes</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

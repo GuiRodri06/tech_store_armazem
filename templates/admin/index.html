@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style.css') }}">
+</head>
+<body>
+    <h1>Admin - Estoque</h1>
+    <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                <strong>{{ produto.nome }}</strong><br>
+                Categoria: {{ produto.categoria }}<br>
+                Preço: R$ {{ produto.preco }}<br>
+                Quantidade: {{ produto.quantidade }}<br>
+                <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
+                <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST">
+                    <button type="submit">Remover</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

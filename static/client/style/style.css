@@ -1,0 +1,27 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff;
+    color: #222;
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    color: #007acc;
+}
+
+.produto {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+a.botao {
+    display: inline-block;
+    background-color: #007acc;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+}
