@@ -9,8 +9,8 @@
     <header>
         <h1>Admin - Estoque</h1>
         <div class="search-bar">
-            <form action="#" method="GET">
-                <input type="text" name="query" placeholder="Buscar produto...">
+            <form action="{{ url_for('buscar_produto') }}" method="GET">
+                <input type="text" name="nome" placeholder="Buscar produto...">
                 <button type="submit">Buscar</button>
             </form>
         </div>

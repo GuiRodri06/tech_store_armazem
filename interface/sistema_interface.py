@@ -20,3 +20,6 @@ class SistemaInterface(ABC):
     
     @abstractmethod
     def remover_produto(self, nome): pass
+
+    @abstractmethod
+    def buscar_produto(self, nome): pass

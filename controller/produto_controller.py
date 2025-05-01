@@ -54,3 +54,11 @@ class ProdutoController(SistemaInterface):
     def remover_produto(self, nome):
         # Remove o produto
         return self.estoque.remover_produto(nome)
+    
+    def buscar_produto(self, nome):
+        nome = nome.strip().lower()
+        produtos = self.estoque.listar_produtos()
+        for produto in produtos:
+            if produto.nome.strip().lower() == nome:
+                return produto
+        return None
