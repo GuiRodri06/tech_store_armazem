@@ -9,7 +9,9 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from controller.produto_controller import ProdutoController
 
-app = Flask(__name__, template_folder="../templates/admin", static_folder="../static/admin")
+# Configura pasta de templates e static para o projeto
+app = Flask(__name__, template_folder="../templates/admin", static_folder="../static")
+
 controller = ProdutoController()
 
 @app.route("/admin")
