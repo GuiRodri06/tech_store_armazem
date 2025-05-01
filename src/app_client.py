@@ -11,6 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from controller.produto_controller import ProdutoController
 
 app = Flask(__name__, template_folder="../templates/client", static_folder="../static/client")
+
 controller = ProdutoController()
 
 @app.route("/")
