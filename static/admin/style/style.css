@@ -1,21 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #587B7F;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da janela */
 }
 
 main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
     margin-top: 0px; /* Adiciona espaço para evitar sobreposição com o header */
+    padding: 20px; /* Adiciona espaçamento interno */
 }
 
 header {
-    background-color: #0066cc;
+    background-color: #393E41;
     padding: 15px 20px;
     display: flex;
     align-items: center;
     justify-content: center; /* Centraliza os elementos no header */
-    border-bottom: 1px solid #ccc;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -37,25 +41,27 @@ header .search-bar {
 
 header .search-bar input[type="text"] {
     padding: 8px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #1F2421;
     border-radius: 4px;
     font-size: 14px;
     width: 300px; /* Aumenta a largura da barra de busca */
 }
 
 header .search-bar button {
-    padding: 8px 12px;
+    padding: 8px 20px;
     border: none;
-    background-color: #004a99;
+    background-color: #587B7F;
     color: white;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-weight: bold;
 }
 
 header .search-bar button:hover {
-    background-color: #003366;
+    background-color: #9CC5A1;
 }
 
 .adicionar-produto {
@@ -65,7 +71,7 @@ header .search-bar button:hover {
 
 .adicionar-produto a {
     padding: 10px 20px;
-    background-color: #0066cc;
+    background-color: #393E41;
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
@@ -74,9 +80,8 @@ header .search-bar button:hover {
 }
 
 .adicionar-produto a:hover {
-    background-color: #004a99;
+    background-color: #9CC5A1;
 }
-
 
 /* Estilo para a lista de produtos */
 ul {
@@ -120,7 +125,7 @@ li.item {
 
 .produto-acoes a, .produto-acoes button {
     padding: 8px 12px;
-    background-color: #0066cc;
+    background-color: #587B7F;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -131,5 +136,48 @@ li.item {
 }
 
 .produto-acoes a:hover, .produto-acoes button:hover {
-    background-color: #004a99;
+    background-color: #9CC5A1;
+}
+
+li.item:hover {
+    transform: scale(1.02); /* Aumenta ligeiramente o item ao passar o mouse */
+    transition: transform 0.2s; /* Transição suave */
+}
+
+@media (max-width: 768px) {
+    header .search-bar {
+        flex-direction: column; /* Muda para coluna em telas menores */
+        gap: 8px;
+        align-items: flex-start; /* Alinha à esquerda */
+    }
+    
+    ul {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+footer {
+    background-color: #393E41;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Empurra o rodapé para o final */
+    width: 100%; /* Garante que o rodapé ocupe toda a largura */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+li.item {
+    animation: fadeIn 0.5s ease-in-out;
 }
