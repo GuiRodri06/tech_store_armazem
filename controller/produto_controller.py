@@ -4,6 +4,7 @@
 from model.estoque import Estoque
 from model.produto import Produto
 from interface.sistema_interface import SistemaInterface
+from rapidfuzz import process
 
 class ProdutoController(SistemaInterface):
 
@@ -55,10 +56,13 @@ class ProdutoController(SistemaInterface):
         # Remove o produto
         return self.estoque.remover_produto(nome)
     
-    def buscar_produto(self, nome):
-        nome = nome.strip().lower()
+    # Busca aproximada via fuzzy matching
+    def buscar_produtos_fuzzy(self, termo, limite=5):
+        termo = termo.strip().lower()
         produtos = self.estoque.listar_produtos()
-        for produto in produtos:
-            if produto.nome.strip().lower() == nome:
-                return produto
-        return None
+        nomes = [produto.nome.strip().lower() for produto in produtos]
+        matches = process.extract(termo, nomes, limit=limite, score_cutoff=60)
+        resultados = []
+        for nome, score, index in matches:
+            resultados.append(produtos[index])
+        return resultados

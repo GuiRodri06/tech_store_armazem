@@ -47,14 +47,20 @@ def remover_produto(nome):
     controller.remover_produto(nome)
     return redirect(url_for("admin_index"))
 
-@app.route("/admin/buscar", methods=["GET"])
+# Nova rota para busca de produtos com resultado múltiplo
+@app.route("/admin/buscar", methods=["GET", "POST"])
 def buscar_produto():
-    nome = request.args.get('nome')  # Obtém o nome do produto da query string
-    produto = controller.buscar_produto(nome)  # Chama o método de busca no controller
-    if produto:
-        return render_template("produto.html", produto=produto)  # Renderiza a página de detalhes do produto
-    else:
-        return render_template("erro_busca.html", mensagem="Produto não encontrado.")  # Mensagem de erro
+    termo = ''
+    resultados = []
+    if request.method == "POST":
+        termo = request.form.get('nome', '').strip()
+        if termo:
+            resultados = controller.buscar_produtos_fuzzy(termo)
+    elif request.method == "GET":
+        termo = request.args.get('nome', '').strip()
+        if termo:
+            resultados = controller.buscar_produtos_fuzzy(termo)
+    return render_template("buscar_resultados.html", produtos=resultados, termo=termo)
 
 if __name__ == '__main__':
     app.run(debug=True)
