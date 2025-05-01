@@ -6,21 +6,38 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style.css') }}">
 </head>
 <body>
-    <h1>Admin - Estoque</h1>
-    <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
-    <ul>
-        {% for produto in produtos %}
-            <li>
-                <strong>{{ produto.nome }}</strong><br>
-                Categoria: {{ produto.categoria }}<br>
-                Preço: R$ {{ produto.preco }}<br>
-                Quantidade: {{ produto.quantidade }}<br>
-                <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
-                <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST">
-                    <button type="submit">Remover</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Admin - Estoque</h1>
+        <div class="search-bar">
+            <form action="#" method="GET">
+                <input type="text" name="query" placeholder="Buscar produto...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="adicionar-produto">
+            <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
+        </div>
+    
+        <ul>
+            {% for produto in produtos %}
+                <li class="item">
+                    <div class="produto-info">
+                        <strong>{{ produto.nome }}</strong>
+                        <p>Categoria: {{ produto.categoria }}</p>
+                        <p>Preço: R$ {{ produto.preco }}</p>
+                        <p>Quantidade: {{ produto.quantidade }}</p>
+                    </div>
+                    <div class="produto-acoes">
+                        <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
+                        <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
 </body>
 </html>

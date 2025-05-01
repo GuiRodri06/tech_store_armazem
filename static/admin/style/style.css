@@ -1,36 +1,135 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
 }
 
-h1 {
-    color: #333;
+main {
+    margin-top: 0px; /* Adiciona espaço para evitar sobreposição com o header */
 }
 
-a, button {
-    margin: 5px;
-    padding: 6px 10px;
+header {
+    background-color: #0066cc;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza os elementos no header */
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column; /* Organiza os elementos em coluna */
+}
+
+header h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 10px 0; /* Adiciona espaço abaixo do título */
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Espaço abaixo da barra de busca */
+}
+
+header .search-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 300px; /* Aumenta a largura da barra de busca */
+}
+
+header .search-bar button {
+    padding: 8px 12px;
     border: none;
+    background-color: #004a99;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .search-bar button:hover {
+    background-color: #003366;
+}
+
+.adicionar-produto {
+    margin: 20px 20px 20px; /* Espaço para posicionar abaixo do header */
+    text-align: center; /* Centraliza o botão */
+}
+
+.adicionar-produto a {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.adicionar-produto a:hover {
+    background-color: #004a99;
+}
+
+
+/* Estilo para a lista de produtos */
+ul {
+    display: grid; /* Define o layout como grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas responsivas */
+    gap: 20px; /* Espaçamento entre os quadrados */
+    padding: 20px; /* Espaçamento interno da lista */
+    list-style: none; /* Remove os marcadores padrão */
+    margin: 0; /* Remove margens externas */
+}
+
+li.item {
+    background: #f9f9f9; /* Fundo claro para os quadrados */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    justify-content: space-between; /* Espaça os elementos dentro do quadrado */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para as informações do produto */
+.produto-info {
+    margin-bottom: 15px; /* Espaçamento entre as informações e os botões */
+}
+
+.produto-info strong {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo para a barra de ações */
+.produto-acoes {
+    display: flex;
+    justify-content: space-around; /* Espaça os botões uniformemente */
+    gap: 10px;
+}
+
+.produto-acoes a, .produto-acoes button {
+    padding: 8px 12px;
     background-color: #0066cc;
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-form {
-    display: inline;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    background: #fff;
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+.produto-acoes a:hover, .produto-acoes button:hover {
+    background-color: #004a99;
 }
