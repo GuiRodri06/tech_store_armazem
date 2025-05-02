@@ -32,17 +32,18 @@ def adicionar_produto():
 
 @app.route("/admin/atualizar/<string:nome>", methods=["GET", "POST"])
 def atualizar_produto(nome):
-    # Busca o produto pelo nome
-    produto = controller.buscar_produto_por_nome(nome)  # Método que você deve implementar
+    produto = controller.buscar_produto_por_nome(nome)  # Busca o produto pelo nome
     if request.method == "POST":
-        nova_quantidade = int(request.form['quantidade']) if request.form['quantidade'] else produto['quantidade']
-        novo_preco = float(request.form['preco']) if request.form['preco'] else produto['preco']
-        novo_nome = request.form['novo_nome'] if request.form['novo_nome'] else produto['nome']
+        nova_quantidade = int(request.form['quantidade']) if request.form['quantidade'] else produto.quantidade
+        novo_preco = float(request.form['preco']) if request.form['preco'] else produto.preco
+        novo_nome = request.form['novo_nome'] if request.form['novo_nome'] else produto.nome
+        nova_categoria = request.form['categoria'] if request.form['categoria'] else produto.categoria  # Captura a nova categoria
         
-        # Atualiza o produto
-        controller.atualizarQuantidade(nome, nova_quantidade)
-        controller.atualizarPreco(nome, novo_preco)
-        controller.atualizarNome(nome, novo_nome)
+        controller.atualizarQuantidade(nome, nova_quantidade)  # Atualiza a quantidade
+        controller.atualizarPreco(nome, novo_preco)            # Atualiza o preço
+        controller.atualizarNome(nome, novo_nome)              # Atualiza o nome
+        controller.atualizarCategoria(nome, nova_categoria)     # Atualiza a categoria
+        
         return redirect(url_for("admin_index"))
     
     return render_template("atualizar.html", produto=produto)  # Passa o produto para o template

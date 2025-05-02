@@ -128,3 +128,14 @@ class Estoque:
         if produto:
             return Produto(nome=produto[1], categoria=produto[2], preco=produto[3], quantidade=produto[4])
         return None
+    
+    def atualizarCategoriaEstoque(self, produto, categoria):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            UPDATE produtos
+            SET categoria = ?
+            WHERE nome = ?
+        ''', (categoria, produto.nome))
+        conn.commit()
+        conn.close()

@@ -23,6 +23,17 @@
                     <label for="novo_nome">Novo Nome:</label>
                     <input type="text" id="novo_nome" name="novo_nome" value="{{ produto.nome }}">
 
+                    <label for="categoria">Nova Categoria:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Hardware" {% if produto.categoria == 'Hardware' %}selected{% endif %}>Hardware</option>
+                        <option value="Acessórios" {% if produto.categoria == 'Acessórios' %}selected{% endif %}>Acessórios</option>
+                        <option value="Tablet" {% if produto.categoria == 'Tablet' %}selected{% endif %}>Tablet</option>
+                        <option value="Telemóvel" {% if produto.categoria == 'Telemóvel' %}selected{% endif %}>Telemóvel</option>
+                        <option value="Portátil" {% if produto.categoria == 'Portátil' %}selected{% endif %}>Portátil</option>
+                        <option value="Desktop" {% if produto.categoria == 'Desktop' %}selected{% endif %}>Desktop</option>
+                    </select><br>
+
                     <label for="preco">Novo Preço:</label>
                     <input type="number" id="preco" name="preco" step="0.01" value="{{ produto.preco }}">
 

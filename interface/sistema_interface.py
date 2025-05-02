@@ -26,3 +26,6 @@ class SistemaInterface(ABC):
 
     @abstractmethod
     def buscar_produto_por_nome(self, nome): pass
+
+    @abstractmethod   
+    def atualizarCategoria(self, nome_antigo, nova_categoria): pass

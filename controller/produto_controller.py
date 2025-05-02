@@ -69,3 +69,8 @@ class ProdutoController(SistemaInterface):
     
     def buscar_produto_por_nome(self, nome):
         return self.estoque.buscar_produto_por_nome(nome)
+    
+    def atualizarCategoria(self, nome_antigo, nova_categoria):
+        produto = self.estoque.buscar_produto_por_nome(nome_antigo)
+        if produto:
+            self.estoque.atualizarCategoriaEstoque(produto, nova_categoria)
