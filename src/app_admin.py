@@ -32,15 +32,20 @@ def adicionar_produto():
 
 @app.route("/admin/atualizar/<string:nome>", methods=["GET", "POST"])
 def atualizar_produto(nome):
+    # Busca o produto pelo nome
+    produto = controller.buscar_produto_por_nome(nome)  # Método que você deve implementar
     if request.method == "POST":
-        nova_quantidade = int(request.form['quantidade'])
-        novo_preco = float(request.form['preco'])
-        novo_nome = request.form['novo_nome']
+        nova_quantidade = int(request.form['quantidade']) if request.form['quantidade'] else produto['quantidade']
+        novo_preco = float(request.form['preco']) if request.form['preco'] else produto['preco']
+        novo_nome = request.form['novo_nome'] if request.form['novo_nome'] else produto['nome']
+        
+        # Atualiza o produto
         controller.atualizarQuantidade(nome, nova_quantidade)
         controller.atualizarPreco(nome, novo_preco)
         controller.atualizarNome(nome, novo_nome)
         return redirect(url_for("admin_index"))
-    return render_template("atualizar.html", nome=nome)
+    
+    return render_template("atualizar.html", produto=produto)  # Passa o produto para o template
 
 @app.route("/admin/remover/<string:nome>", methods=["POST"])
 def remover_produto(nome):

@@ -118,3 +118,13 @@ class Estoque:
         
         conn.commit() # Salva as alterações no banco de dados
         conn.close() # Fecha a conexão com o banco de dados
+
+    def buscar_produto_por_nome(self, nome):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM produtos WHERE nome = ?', (nome,))
+        produto = cursor.fetchone()
+        conn.close()
+        if produto:
+            return Produto(nome=produto[1], categoria=produto[2], preco=produto[3], quantidade=produto[4])
+        return None

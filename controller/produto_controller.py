@@ -66,3 +66,6 @@ class ProdutoController(SistemaInterface):
         for nome, score, index in matches:
             resultados.append(produtos[index])
         return resultados
+    
+    def buscar_produto_por_nome(self, nome):
+        return self.estoque.buscar_produto_por_nome(nome)

@@ -23,3 +23,6 @@ class SistemaInterface(ABC):
 
     @abstractmethod
     def buscar_produtos_fuzzy(self, termo, limite=5): pass
+
+    @abstractmethod
+    def buscar_produto_por_nome(self, nome): pass
