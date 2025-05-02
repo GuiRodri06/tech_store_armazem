@@ -181,3 +181,45 @@ footer {
 li.item {
     animation: fadeIn 0.5s ease-in-out;
 }
+
+.tabela-adcionar {
+    background-color: #ffffff; /* Fundo branco para o formulário */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px auto; /* Centraliza o formulário */
+    max-width: 500px; /* Largura máxima do formulário */
+}
+
+.tabela-adcionar label {
+    display: block; /* Faz o label ocupar toda a largura */
+    margin-bottom: 5px; /* Espaço abaixo do label */
+    font-weight: bold; /* Destaca o texto do label */
+    color: #333; /* Cor do texto */
+}
+
+.tabela-adcionar input[type="text"],
+.tabela-adcionar input[type="number"] {
+    width: 100%; /* Largura total do campo */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-bottom: 15px; /* Espaço abaixo do campo */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+.tabela-adcionar button {
+    width: 100%; /* Largura total do botão */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #587B7F; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.tabela-adcionar button:hover {
+    background-color: #9CC5A1; /* Cor do botão ao passar o mouse */
+}
