@@ -206,6 +206,16 @@ li.item {
     box-sizing: border-box; /* Garante que o padding seja contabilizado dentro da largura */
 }
 
+.tabela-adcionar select {
+    width: 100%; /* Faz o select preencher toda a largura do formulário */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-bottom: 15px; /* Espaço abaixo do campo */
+    font-size: 14px; /* Tamanho da fonte */
+    box-sizing: border-box; /* Garante que o padding seja contabilizado dentro da largura */
+}
+
 .tabela-adcionar button {
     width: 100%; /* Botão ocupa toda a largura do formulário */
     padding: 10px;
