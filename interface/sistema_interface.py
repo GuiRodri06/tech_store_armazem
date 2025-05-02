@@ -20,3 +20,6 @@ class SistemaInterface(ABC):
     
     @abstractmethod
     def remover_produto(self, nome): pass
+
+    @abstractmethod
+    def buscar_produtos_fuzzy(self, termo, limite=5): pass

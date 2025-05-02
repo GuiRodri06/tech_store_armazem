@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Admin - Estoque</h1>
+        <div class="search-bar">
+            <form action="{{ url_for('buscar_produto') }}" method="GET">
+                <input type="text" name="nome" placeholder="Buscar produto...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="adicionar-produto">
+            <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
+        </div>
+    
+        <ul>
+            {% for produto in produtos %}
+                <li class="item">
+                    <div class="produto-info">
+                        <strong>{{ produto.nome }}</strong>
+                        <p>Categoria: {{ produto.categoria }}</p>
+                        <p>Preço: R$ {{ produto.preco }}</p>
+                        <p>Quantidade: {{ produto.quantidade }}</p>
+                    </div>
+                    <div class="produto-acoes">
+                        <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
+                        <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 Tech Store. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
