@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #587B7F;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+header {
+    background-color: #393E41;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+header h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+header .search-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #1F2421;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 300px;
+}
+
+header .search-bar button {
+    padding: 8px 20px;
+    border: none;
+    background-color: #587B7F;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+
+header .search-bar button:hover {
+    background-color: #9CC5A1;
+}
+
+.adicionar-produto {
+    margin: 20px 20px 20px;
+    text-align: center;
+}
+
+.adicionar-produto a {
+    padding: 10px 20px;
+    background-color: #393E41;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.adicionar-produto a:hover {
+    background-color: #9CC5A1;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+}
+
+li.item {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.produto-info {
+    margin-bottom: 15px;
+}
+
+.produto-info strong {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.produto-acoes {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.produto-acoes a,
+.produto-acoes button {
+    padding: 8px 12px;
+    background-color: #587B7F;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.produto-acoes a:hover,
+.produto-acoes button:hover {
+    background-color: #9CC5A1;
+}
+
+li.item:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s;
+}
+
+@media (max-width: 768px) {
+    header .search-bar {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    
+    ul {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+footer {
+    background-color: #393E41;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

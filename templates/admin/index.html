@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Painel do Estoque</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style_index.css') }}">
 </head>
 <body>
     <header>
-        <h1>Estoque</h1>
+        <h1>Painel do Estoque - Tech Store</h1>
         <div class="search-bar">
             <form action="{{ url_for('buscar_produto') }}" method="GET">
                 <input type="text" name="nome" placeholder="Buscar produto...">
