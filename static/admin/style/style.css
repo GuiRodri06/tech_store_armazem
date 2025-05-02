@@ -187,39 +187,65 @@ li.item {
     border-radius: 8px; /* Bordas arredondadas */
     padding: 20px; /* Espaçamento interno */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin: 20px auto; /* Centraliza o formulário */
-    max-width: 500px; /* Largura máxima do formulário */
-}
-
-.tabela-adcionar label {
-    display: block; /* Faz o label ocupar toda a largura */
-    margin-bottom: 5px; /* Espaço abaixo do label */
-    font-weight: bold; /* Destaca o texto do label */
-    color: #333; /* Cor do texto */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    max-width: 700px; /* Largura máxima maior para telas grandes */
+    width: 90%; /* Ocupa 90% da largura da tela em telas menores */
+    display: flex;
+    flex-direction: column; /* Organiza em coluna */
+    align-items: stretch; /* Faz os elementos preencherem a largura do container */
 }
 
 .tabela-adcionar input[type="text"],
 .tabela-adcionar input[type="number"] {
-    width: 100%; /* Largura total do campo */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #ccc; /* Borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
-    margin-bottom: 15px; /* Espaço abaixo do campo */
-    font-size: 14px; /* Tamanho da fonte */
+    width: 100%; /* Faz os campos preencherem toda a largura do formulário */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-sizing: border-box; /* Garante que o padding seja contabilizado dentro da largura */
 }
 
 .tabela-adcionar button {
-    width: 100%; /* Largura total do botão */
-    padding: 10px; /* Espaçamento interno */
-    background-color: #587B7F; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-    transition: background-color 0.3s ease; /* Transição suave */
+    width: 100%; /* Botão ocupa toda a largura do formulário */
+    padding: 10px;
+    background-color: #587B7F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espaço acima do botão */
 }
 
 .tabela-adcionar button:hover {
-    background-color: #9CC5A1; /* Cor do botão ao passar o mouse */
+    background-color: #9CC5A1;
+}
+
+.voltar-painel {
+    display: inline-block;
+    margin: 30px auto 0 auto;
+    padding: 10px 20px;
+    background-color: #393E41;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    align-items: center;
+}
+
+.voltar-painel:hover {
+    background-color: #9CC5A1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.main-interno {
+    display: flex; /* Adiciona flexbox para centralizar os itens */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
 }
