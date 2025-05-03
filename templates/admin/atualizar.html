@@ -26,12 +26,15 @@
                     <label for="categoria">Nova Categoria:</label>
                     <select id="categoria" name="categoria" required>
                         <option value="">Selecione uma categoria</option>
-                        <option value="Hardware" {% if produto.categoria == 'Hardware' %}selected{% endif %}>Hardware</option>
                         <option value="Acessórios" {% if produto.categoria == 'Acessórios' %}selected{% endif %}>Acessórios</option>
+                        <option value="Desktop" {% if produto.categoria == 'Desktop' %}selected{% endif %}>Desktop</option>
+                        <option value="Fone" {% if produto.categoria == 'Fone' %}selected{% endif %}>Fone</option>
+                        <option value="Hardware" {% if produto.categoria == 'Hardware' %}selected{% endif %}>Hardware</option>
+                        <option value="Periférico" {% if produto.categoria == 'Periférico' %}selected{% endif %}>Periférico</option>
+                        <option value="Portátil" {% if produto.categoria == 'Portátil' %}selected{% endif %}>Portátil</option>
+                        <option value="Smartwatch" {% if produto.categoria == 'Smartwatch' %}selected{% endif %}>Smartwatch</option>
                         <option value="Tablet" {% if produto.categoria == 'Tablet' %}selected{% endif %}>Tablet</option>
                         <option value="Telemóvel" {% if produto.categoria == 'Telemóvel' %}selected{% endif %}>Telemóvel</option>
-                        <option value="Portátil" {% if produto.categoria == 'Portátil' %}selected{% endif %}>Portátil</option>
-                        <option value="Desktop" {% if produto.categoria == 'Desktop' %}selected{% endif %}>Desktop</option>
                     </select><br>
 
                     <label for="preco">Novo Preço:</label>
