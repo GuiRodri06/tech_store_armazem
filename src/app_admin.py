@@ -66,7 +66,7 @@ def buscar_produto():
         termo = request.args.get('nome', '').strip()
         if termo:
             resultados = controller.buscar_produtos_fuzzy(termo)
-    return render_template("buscar_resultados.html", produtos=resultados, termo=termo)
+    return render_template("buscar.html", produtos=resultados, termo=termo)
 
 if __name__ == '__main__':
     app.run(debug=True)

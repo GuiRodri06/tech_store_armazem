@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados da Busca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style_buscar.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Painel do Estoque - Tech Store</h1>
+        <div class="search-bar">
+            <form action="{{ url_for('buscar_produto') }}" method="GET">
+                <input type="text" name="nome" placeholder="Buscar produto...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <h1>Resultados da busca para "{{ termo }}"</h1>
+        {% if produtos %}
+            <ul>
+                {% for produto in produtos %}
+                    <li class="item">
+                        <div class="produto-info">
+                            <strong>{{ produto.nome }}</strong>
+                            <p>Categoria: {{ produto.categoria }}</p>
+                            <p>Preço: € {{ produto.preco }}</p>
+                            <p>Quantidade: {{ produto.quantidade }}</p>
+                        </div>
+                        <div class="produto-acoes">
+                            <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
+                            <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST" style="display:inline;">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum produto encontrado.</p>
+        {% endif %}
+        
+        <a href="{{ url_for('admin_index') }}">Voltar para o Painel</a>
+    </main>
+
+    
+</body>
+</html>
