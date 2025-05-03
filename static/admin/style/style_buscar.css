@@ -84,12 +84,14 @@ header .search-bar button:hover {
 }
 
 ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 2000px; /* ajuste conforme o máximo que você deseja, isso é pro tamanho da tela do sistema de busca */
 }
 
 li.item {
@@ -98,6 +100,7 @@ li.item {
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 260px;         /* Largura fixa */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -150,11 +153,19 @@ li.item:hover {
         gap: 8px;
         align-items: flex-start;
     }
-    
+
     ul {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
         padding: 15px;
+    }
+
+    .produto-info strong {
+        font-size: 16px;
+    }
+
+    .produto-info p {
+        font-size: 13px;
     }
 }
 
