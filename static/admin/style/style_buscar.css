@@ -64,23 +64,37 @@ header .search-bar button:hover {
     background-color: #9CC5A1;
 }
 
-.adicionar-produto {
-    margin: 20px 20px 20px;
-    text-align: center;
+.main-interno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.adicionar-produto a {
-    padding: 10px 20px;
-    background-color: #393E41;
+h1.resultado {
     color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    background-color: #393E41;
+    padding: 15px 20px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 6px;
+    max-width: 800px; /* Limita largura pra não esticar demais */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
 }
 
-.adicionar-produto a:hover {
-    background-color: #9CC5A1;
+.nao-encontrado {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    background: #ffffff;
+    padding: 25px 30px;
+    margin: 40px auto;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 ul {
@@ -145,6 +159,27 @@ li.item {
 li.item:hover {
     transform: scale(1.02);
     transition: transform 0.2s;
+}
+
+.voltar-painel {
+    display: inline-block;
+    margin: 30px auto 0 auto;
+    padding: 10px 20px;
+    background-color: #393E41;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    align-items: center;
+}
+
+.voltar-painel:hover {
+    background-color: #9CC5A1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 @media (max-width: 768px) {

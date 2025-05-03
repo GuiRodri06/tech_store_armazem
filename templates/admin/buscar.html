@@ -16,31 +16,38 @@
         </div>
     </header>
     <main>
-        <h1>Resultados da busca para "{{ termo }}"</h1>
-        {% if produtos %}
-            <ul>
-                {% for produto in produtos %}
-                    <li class="item">
-                        <div class="produto-info">
-                            <strong>{{ produto.nome }}</strong>
-                            <p>Categoria: {{ produto.categoria }}</p>
-                            <p>Preço: € {{ produto.preco }}</p>
-                            <p>Quantidade: {{ produto.quantidade }}</p>
-                        </div>
-                        <div class="produto-acoes">
-                            <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
-                            <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST" style="display:inline;">
-                                <button type="submit">Remover</button>
-                            </form>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Nenhum produto encontrado.</p>
-        {% endif %}
-        
-        <a href="{{ url_for('admin_index') }}">Voltar para o Painel</a>
+        <div class="main-interno">
+            <h1 class="resultado">Resultados da busca para "{{ termo }}"</h1>
+            {% if produtos %}
+                <ul>
+                    {% for produto in produtos %}
+                        <li class="item">
+                            <div class="produto-info">
+                                <strong>{{ produto.nome }}</strong>
+                                <p>Categoria: {{ produto.categoria }}</p>
+                                <p>Preço: € {{ produto.preco }}</p>
+                                <p>Quantidade: {{ produto.quantidade }}</p>
+                            </div>
+                            <div class="produto-acoes">
+                                <a href="{{ url_for('atualizar_produto', nome=produto.nome) }}">Atualizar</a>
+                                <form action="{{ url_for('remover_produto', nome=produto.nome) }}" method="POST" style="display:inline;">
+                                    <button type="submit">Remover</button>
+                                </form>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="nao-encontrado">
+                    <p>Nenhum produto encontrado.</p>
+                </div>
+                
+            {% endif %}
+            
+            <div>
+                <a href="{{ url_for('admin_index') }}" class="voltar-painel">Voltar para o Painel</a>
+            </div>
+        </div>
     </main>
 
     
