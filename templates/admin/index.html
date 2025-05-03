@@ -26,7 +26,7 @@
                     <div class="produto-info">
                         <strong>{{ produto.nome }}</strong>
                         <p>Categoria: {{ produto.categoria }}</p>
-                        <p>Preço: € {{ produto.preco }}</p>
+                        <p>Preço: € {{ "%.2f"|format(produto.preco) }}</p>
                         <p>Quantidade: {{ produto.quantidade }}</p>
                     </div>
                     <div class="produto-acoes">
