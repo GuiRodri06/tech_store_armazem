@@ -27,12 +27,16 @@ def admin_index():
 
     # Filtro por faixa de preço
     if faixa_preco:
-        if faixa_preco == "0-50":
-            produtos = [p for p in produtos if p.preco <= 50]
-        elif faixa_preco == "51-100":
-            produtos = [p for p in produtos if 51 <= p.preco <= 100]
-        elif faixa_preco == "101-500":
-            produtos = [p for p in produtos if 101 <= p.preco <= 500]
+        if faixa_preco == "0-100":
+            produtos = [p for p in produtos if p.preco <= 100]
+        elif faixa_preco == "101-200":
+            produtos = [p for p in produtos if 101 <= p.preco <= 200]
+        elif faixa_preco == "201-300":
+            produtos = [p for p in produtos if 201 <= p.preco <= 300]
+        elif faixa_preco == "301-400":
+            produtos = [p for p in produtos if 301 <= p.preco <= 400]
+        elif faixa_preco == "401-500":
+            produtos = [p for p in produtos if 401 <= p.preco <= 500]
         elif faixa_preco == "501-":
             produtos = [p for p in produtos if p.preco > 500]
 
