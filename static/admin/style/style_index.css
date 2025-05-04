@@ -83,6 +83,25 @@ header .search-bar button:hover {
     background-color: #9CC5A1;
 }
 
+.filtro-barra {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.filtro-barra form {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filtro-barra select, .filtro-barra button {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #1F2421;
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;

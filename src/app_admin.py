@@ -16,7 +16,26 @@ controller = ProdutoController()
 
 @app.route("/admin")
 def admin_index():
+    categoria = request.args.get('categoria', '')
+    faixa_preco = request.args.get('faixa_preco', '')
+
     produtos = controller.listar_produtos()
+
+    # Filtro por categoria
+    if categoria:
+        produtos = [p for p in produtos if p.categoria == categoria]
+
+    # Filtro por faixa de preço
+    if faixa_preco:
+        if faixa_preco == "0-50":
+            produtos = [p for p in produtos if p.preco <= 50]
+        elif faixa_preco == "51-100":
+            produtos = [p for p in produtos if 51 <= p.preco <= 100]
+        elif faixa_preco == "101-500":
+            produtos = [p for p in produtos if 101 <= p.preco <= 500]
+        elif faixa_preco == "501-":
+            produtos = [p for p in produtos if p.preco > 500]
+
     return render_template("index.html", produtos=produtos)
 
 @app.route("/admin/adicionar", methods=["GET", "POST"])
