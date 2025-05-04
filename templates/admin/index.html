@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Painel do Estoque</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/style/style_index.css') }}">
 </head>
 <body>
     <header>
-        <h1>Estoque</h1>
+        <h1>Painel do Estoque - Tech Store</h1>
         <div class="search-bar">
             <form action="{{ url_for('buscar_produto') }}" method="GET">
                 <input type="text" name="nome" placeholder="Buscar produto...">
@@ -19,14 +19,41 @@
         <div class="adicionar-produto">
             <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
         </div>
-    
+        <div class="filtro-barra">
+            <form action="{{ url_for('admin_index') }}" method="GET">
+                <select name="categoria">
+                    <option value="">Todas as Categorias</option>
+                    <option value="Acessórios">Acessórios</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Fone">Fone</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Periférico">Periférico</option>
+                    <option value="Portátil">Portátil</option>
+                    <option value="Smartwatch">Smartwatch</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Telemóvel">Telemóvel</option>
+                </select>
+                
+                <select name="faixa_preco">
+                    <option value="">Todos os preços</option>
+                    <option value="0-100">€0 - €100</option>
+                    <option value="101-200">€101 - €200</option>
+                    <option value="201-300">€201 - €300</option>
+                    <option value="301-400">€301 - €400</option>
+                    <option value="401-500">€401 - €500</option>
+                    <option value="501-">Acima de €500</option>
+                </select>
+        
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
         <ul>
             {% for produto in produtos %}
                 <li class="item">
                     <div class="produto-info">
                         <strong>{{ produto.nome }}</strong>
                         <p>Categoria: {{ produto.categoria }}</p>
-                        <p>Preço: R$ {{ produto.preco }}</p>
+                        <p>Preço: € {{ "%.2f"|format(produto.preco) }}</p>
                         <p>Quantidade: {{ produto.quantidade }}</p>
                     </div>
                     <div class="produto-acoes">
